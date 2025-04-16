@@ -2,14 +2,14 @@
 
 /* geral */
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+    margin: 0 auto;
+    padding: 0 auto;
     font-family: "Nunito Sans";
 }
 
 /* geral tags */
-a{
+a {
     color: #000;
     text-decoration: none;
 }
@@ -18,21 +18,32 @@ a{
 
 /* posicoes-setadas */
 
-.display-flex{
+.display-flex {
     display: flex;
 }
-.justify-content-c{
+
+.justify-content-c {
     justify-content: center;
 }
-.align-items-c{
+
+.align-items-c {
     align-items: center;
 }
-.justify-content-ar{
+
+.justify-content-ar {
     justify-content: space-around;
 }
 
+.justify-content-bt {
+    justify-content: space-between;
+}
+
 /* header */
-header p{
+header {
+    position: relative;
+}
+
+header p {
     color: #fff;
     font-size: 14px;
     font-style: normal;
@@ -40,16 +51,18 @@ header p{
     line-height: 22px;
 }
 
-.faixa-top{
-    background-color:#005CFF;
+.faixa-top {
+    background-color: #005CFF;
     padding: 4px 0px;
     height: 30px;
 }
-.italico{
+
+.italico {
     font-style: italic;
     font-weight: 400;
 }
-.sublinhado{
+
+.sublinhado {
     background-color: #6220C1;
     width: 63px;
     height: 16px;
@@ -58,19 +71,24 @@ header p{
     border-radius: 6px;
 }
 
-.faixa-bottom{
+.faixa-bottom {
     background-color: #fff;
-    justify-content: space-around;
+    padding: 0 320px;
+    box-sizing: border-box;
     width: 100vw;
     height: 80px;
     flex-shrink: 0;
+
 }
-.logo-busca{
+
+.logo-busca {
     flex-direction: row;
-    width: 45vw;
-    justify-content: space-between;
+    width: auto;
+    justify-content: flex-start;
+    gap: 3.5rem;
 }
-.pesquisar{
+
+.pesquisar {
     border: 1px solid #ccc;
     border-radius: 8px;
     justify-content: space-between;
@@ -79,7 +97,8 @@ header p{
     margin: 16px auto;
     background: white;
 }
-.pesquisar input[type="search"]{
+
+.pesquisar input[type="search"] {
     border: none;
     padding: 8px;
     font-size: 14px;
@@ -91,29 +110,34 @@ header p{
     line-height: normal;
     outline: none;
 }
-.pesquisar button{
+
+.pesquisar button {
     background: none;
     border: none;
     font-size: 18px;
     cursor: pointer;
 }
-.cliente{
+
+.cliente {
     flex-direction: row;
 }
-.cliente h4{
+
+.cliente h4 {
     color: var(--rgb-000, #000);
-   
+
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 14px;
 }
-#perfil-cliente{
+
+#perfil-cliente {
     flex-direction: row;
     padding: 0 24px;
-    
+
 }
-#perfil-cliente img{
+
+#perfil-cliente img {
     width: 20.571px;
     height: 24px;
     flex-shrink: 0;
@@ -121,18 +145,18 @@ header p{
 }
 
 /* nav */
-
-nav{
-    background-color: #fff;
-    width: 100vw;
-    height: 38px;
+nav {
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
-nav ul{
+nav ul {
     list-style: none;
-    width: 82%;
+
 }
-nav ul li{
+
+nav ul li {
     padding: 10px;
     display: inline-block;
     font-size: 14px;
@@ -141,50 +165,332 @@ nav ul li{
     line-height: 22px;
     transition: all ease-in-out 0.3s;
 }
-nav ul li a:hover{
-    color:#005CFF;
+
+nav ul li a:hover {
+    color: #005CFF;
 }
 
 /* nav-bar */
-.mobile-menu {
+.nav-container {
+    background-color: #fff;
+    width: 100vw;
+    height: 38px;
+    position: relative;
+}
 
-   display: flex;
+.nav-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.nav-links {
+    margin: 0;
+    padding: 0;
+    gap: 12px;
+}
+
+.menu-first-item-container {
+    margin-right: 25px;
+    gap: 1rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: all ease-in-out 0.3s;
+}
+
+.menu-first-item-container a:hover {
+    color: #005CFF;
+}
+
+.hamburguer-menu {
     flex-direction: column;
-    justify-content: space-between;
-    height: 24px;
-    width: 30px;
+    height: 15px;
+    width: 20px;
     cursor: pointer;
     right: 2rem;
 }
 
-.mobile-menu span {
+.hamburguer-menu span {
     width: 100%;
     height: 2px;
     background-color: rgb(0, 0, 0);
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-.mobile-menu.active span:first-child {
+.hamburguer-menu.active span:first-child {
     transform: rotate(45deg) translate(10px, 5px);
 }
 
-.mobile-menu.active span:nth-child(2) {
+.hamburguer-menu.active span:nth-child(2) {
     opacity: 0;
 }
 
-.mobile-menu.active span:last-child {
+.hamburguer-menu.active span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
 
-.mobile-menu span:first-child {
+.hamburguer-menu span:first-child {
     transform: none;
 }
 
-.mobile-menu span:first-child {
+.hamburguer-menu span:first-child {
 
     opacity: 1;
 }
 
-.mobile-menu span:first-child {
+.hamburguer-menu span:first-child {
     transform: none;
 }
+
+
+/* article */
+
+
+/* seção home */
+
+.home-article {
+    background-color: #E7E7EA;
+    flex-direction: row;
+
+}
+
+.text {
+    flex-direction: column;
+    margin-left: 0;
+}
+
+.home-article img {
+    width: auto;
+    margin-right: 0;
+}
+
+.text h1 {
+    color: #000;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.negrito {
+    font-weight: 700;
+}
+
+.text h3 {
+    color: #005CFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 7.5px;
+    text-transform: uppercase;
+}
+
+.negrito-menor {
+    font-size: 60px;
+}
+
+/* cards roupas */
+
+.rolagem-roupas {
+    width: 68vw;
+    height: auto;
+
+}
+
+.title-rolagem {
+    margin: 140px 0px 19px 0px;
+}
+
+.title-rolagem h2 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.title-rolagem a {
+    color: var(--Grey-Scale-darkest-grey, #303030);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0;
+}
+
+.title-rolagem a:hover {
+    color: #005CFF;
+}
+
+.cards-container {
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+}
+
+.card {
+    width: 238px;
+    height: 409px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+
+.img-container{
+    position: relative;
+    display: inline-block;
+}
+.img-container img {
+    width: 222px;
+    height: 222px;
+    object-fit: cover;
+}
+
+.novo-badge {
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    background-color: #00264E;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    color: var(--Grey-Scale-darkest-grey, #303030);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    word-break: break-all
+}
+
+.price {
+    flex-direction: column;
+    margin: 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+
+}
+
+.old-price {
+    text-decoration: line-through;
+    margin-left: 0;
+    color: var(--Grey-Scale-darkest-grey, #303030);
+}
+
+.new-price {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.desconto-badge {
+    margin-left: 8px;
+    background-color: #5EC0BE;
+    color: white;
+    padding: 4px 8px; 
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700; 
+    text-decoration: underline;
+    text-transform: uppercase;
+    
+}
+.text-bottom{
+    color: var(--Grey-Scale-darkest-grey, #303030);
+    font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.buy-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--rgb-092255, #2776ff);  
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color:#005CFF;
+}
+
+/* setas para rolagem */
+
+.scroll-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.scroll-arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #005CFF; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+.scroll-arrow svg {
+    width: 24px;
+    height: 24px;
+    fill: #005CFF;
+    transition: fill 0.3s ease;
+}
+.scroll-arrow:hover {
+    background-color: #005CFF;
+    border-color: #005CFF;
+}
+.scroll-arrow:hover svg {
+    fill: white; 
+}
+.left-arrow {
+    left: -20px;
+}
+.right-arrow {
+    right: -20px;
+}
+.scroll-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
