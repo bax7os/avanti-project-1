@@ -331,9 +331,12 @@ nav ul li a:hover {
     gap: 20px;
     padding-bottom: 20px;
     scrollbar-width: thin;
+    scroll-behavior: smooth;
+  
 }
 
 .card {
+    flex: 0 0 auto;
     width: 238px;
     height: 409px;
     border: 1px solid #ddd;
