@@ -10,11 +10,11 @@
 
 <body>
     <header>
-        <div class="faixa-top justify-content-c align-items-c display-flex">
+        <div class="header-top justify-content-c align-items-c display-flex">
             <p>Ganhe <span class="sublinhado">R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <span
                     class="italico">DESCONTO10</span></p>
         </div>
-        <div class="faixa-bottom display-flex align-items-c justify-content-bt">
+        <div class="header-bottom display-flex align-items-c justify-content-bt">
 
             <div class="logo-busca display-flex align-items-c">
                 <div id="logo-img">
@@ -45,15 +45,73 @@
     <nav class="nav-container display-flex">
         <div class="nav-content display-flex align-items-c justify-content-bt">
             <div class="menu-first-item-container display-flex align-items-c">
+              
                 <div class="hamburguer-menu display-flex justify-content-bt">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <a href="/todas-categorias.html">Todas Categorias</a>
+                <a href="/todas-categorias.html">Todas as Categorias</a>
+
+                <div class="mega-menu mega-menu-base">
+                    <div class="mega-menu-content">
+                        <ul class="departments-column display-flex">
+                            <li data-category="departamento1"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento2"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento3"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento4"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento5"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento6"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento7"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento8"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento9"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                            <li data-category="departamento10"><a href="#">Departamento <span class="arrow">›</span></a>
+                            </li>
+                        </ul>
+                        <div class="subcategories-column display-flex justify-content-l">
+                            <div class="subcategories-content display-flex justify-content-l align-items-c">
+                                
+                            </div>
+                        </div>
+                        <div class="img-mega-menu">
+                            <div class="overlay-content">
+                                <h3>Confira os Produtos <span class="negrito">Que acabaram de chegar</span></h3>
+                                <button class="btn-mega-menu">VER TODOS</button>
+                            </div>
+                            <img src="../assets/mega-menu-img.png" alt="imagem mega menu">
+                        </div>
+                    </div>
+                </div>
             </div>
             <ul class="nav-links display-flex justify-content-bt">
-                <li><a href="/categoria.html">Departamento</a></li>
+                <li class="nav-department">
+                    <a href="/categoria.html">Departamento</a>
+                    <div class="nav-mega-menu mega-menu-base">
+                        <div class="mega-menu-content">
+                            <div class="department-content">
+                            <h3>Departamento</h3>
+                            <div class="categories-grid display-flex padding-0">
+                            </div>
+                        </div>
+                            <div class="img-mega-menu">
+                                <div class="overlay-content">
+                                    <h3>Confira os Produtos <span class="negrito">Que acabaram de chegar</span></h3>
+                                    <button class="btn-mega-menu">VER TODOS</button>
+                                </div>
+                                <img src="../assets/mega-menu-img.png" alt="imagem mega menu">
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="">Departamento</a></li>
                 <li><a href="">Departamento</a></li>
                 <li><a href="">Departamento</a></li>
@@ -61,7 +119,9 @@
                 <li><a href="">Departamento</a></li>
                 <li><a href="">Departamento</a></li>
                 <li><a href="">Departamento</a></li>
+
             </ul>
+        </div>
         </div>
     </nav>
     <main>
@@ -82,10 +142,10 @@
                 <div class="scroll-container">
                     <button class="scroll-arrow left-arrow" aria-label="Rolar para esquerda">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                         </svg>
                     </button>
-                    
+
                     <div class="cards-container display-flex">
                         <div class="card">
                             <div class="img-container">
@@ -224,16 +284,36 @@
                     </div>
                     <button class="scroll-arrow right-arrow" aria-label="Rolar para direita">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                         </svg>
                     </button>
+                    <div class="scroll-indicator">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+           
+            </article>
+        </section>
+        <section id="text-1">
+            <article class="text-article display-flex justify-content-ar">
+                <div class="text-img display-flex justify-content-bt align-items-c">
+                    <div class="content-img display-flex align-items-c justify-content-c">
+                         <img src="../assets/img-caneca.png" alt="imagem teste de caneca">
+                    </div>
+                    <div class="content-text display-flex justify-content-c align-items-c">
+                        <h3>LOREM IPSUM</h3>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                    </div>
                 </div>
             </article>
         </section>
     </main>
 
 
-<script src="../JS/script.js"></script>
+    <script src="../JS/script.js"></script>
 </body>
 
 </html>
