@@ -173,29 +173,42 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchForm = document.getElementById('searchForm');
   const searchInput = document.getElementById('searchInput');
   const searchResult = document.getElementById('searchResult');
+  
+  // Verifica se os elementos existem
+  if (!searchForm || !searchInput || !searchResult) {
+      console.error('Elementos do formulário de pesquisa não encontrados!');
+      return;
+  }
 
-  // Impede o envio do formulário e mostra o resultado
+  // Função para mostrar o resultado
+  function showResult(term) {
+      searchResult.textContent = `Você pesquisou por: ${term}`;
+      searchResult.style.display = 'block';
+  }
+
+  // Manipulador do formulário
   searchForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Isso impede o recarregamento da página
+      event.preventDefault(); // Impede o recarregamento
+      const term = searchInput.value.trim();
       
-      const termo = searchInput.value.trim();
-      
-      if (termo) {
-          searchResult.textContent = `Você pesquisou por: ${termo}`;
-          searchResult.style.display = 'block';
+      if (term) {
+          showResult(term);
+          
+          // Opcional: Adiciona ao histórico de navegação sem recarregar
+          window.history.pushState({}, '', `?q=${encodeURIComponent(term)}`);
       } else {
           searchResult.style.display = 'none';
       }
   });
 
-  // Opcional: Esconder o resultado quando clicar fora
-  document.addEventListener('click', function(event) {
-      if (!searchForm.contains(event.target)) {
-          searchResult.style.display = 'none';
-      }
-  });
+  // Opcional: Mostrar resultado se já existir um parâmetro 'q' na URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('q');
+  if (searchQuery) {
+      searchInput.value = searchQuery;
+      showResult(searchQuery);
+  }
 });
-
 // footer controle de seções
 document.addEventListener('DOMContentLoaded', function() {
   const sectionHeaders = document.querySelectorAll('.footer-section h4');
