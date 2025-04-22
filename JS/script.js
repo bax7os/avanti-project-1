@@ -174,16 +174,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
   const searchResult = document.getElementById('searchResult');
 
+  console.log("Script carregado!"); // Verifica se o JS está carregando
+
   searchForm.addEventListener('submit', function(event) {
+      console.log("Formulário enviado!"); // Verifica se o evento está sendo capturado
       event.preventDefault();
       
       const searchTerm = searchInput.value.trim();
+      console.log("Termo pesquisado:", searchTerm); // Verifica o valor
       
       if (searchTerm) {
-        console.log(searchTerm);
-          searchResult.innerHTML = `Você buscou por: <strong>${searchTerm}</strong>`; // Use innerHTML para estilizar
+          searchResult.innerHTML = `Você buscou por: <strong>${searchTerm}</strong>`;
           searchResult.style.display = 'block';
-  
       } else {
           searchResult.style.display = 'none';
       }
