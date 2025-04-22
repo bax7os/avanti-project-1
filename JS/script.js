@@ -89,50 +89,127 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-    const container = document.querySelector('.cards-container');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    const dots = document.querySelectorAll('.dot');
-    
-    // Calcula a quantidade de slides
-    const card = document.querySelector('.card');
-    const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card).marginRight);
-    const visibleCards = Math.floor(container.clientWidth / cardWidth);
-    const totalSlides = Math.ceil(container.children.length / visibleCards);
 
-    function checkScroll() {
-        const scrollLeft = container.scrollLeft;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        
-        const activeIndex = Math.min(
-            Math.floor(scrollLeft / container.clientWidth * totalSlides),
-            dots.length - 1
-        );
-        
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeIndex);
-        });
-    }
-    
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const scrollTo = index * container.clientWidth;
-            container.scrollTo({
-                left: scrollTo,
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    leftArrow.addEventListener('click', () => {
-        container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });
-    });
-    
-    rightArrow.addEventListener('click', () => {
-        container.scrollBy({ left: container.clientWidth, behavior: 'smooth' });
-    });
-    
-    container.addEventListener('scroll', checkScroll);
-    checkScroll();
+// rolagem de roupas
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleciona todos os containers de rolagem
+  const scrollContainers = document.querySelectorAll('.scroll-container');
+  
+  scrollContainers.forEach((container, containerIndex) => {
+      // Cria um ID único se não existir
+      if (!container.id) {
+          container.id = `scroll-container-${containerIndex}`;
+      }
+      
+      const cardsContainer = container.querySelector('.cards-container');
+      const leftArrow = container.querySelector('.left-arrow');
+      const rightArrow = container.querySelector('.right-arrow');
+      const dots = container.querySelectorAll('.dot');
+      
+      // Configuração específica para este carrossel
+      const card = container.querySelector('.card');
+      const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card).marginRight);
+      const visibleCards = Math.floor(cardsContainer.clientWidth / cardWidth);
+      const totalSlides = Math.ceil(cardsContainer.children.length / visibleCards);
+
+      function checkScroll() {
+          const scrollLeft = cardsContainer.scrollLeft;
+          const maxScroll = cardsContainer.scrollWidth - cardsContainer.clientWidth;
+          
+          const activeIndex = Math.min(
+              Math.floor(scrollLeft / cardsContainer.clientWidth * totalSlides),
+              dots.length - 1
+          );
+          
+          dots.forEach((dot, index) => {
+              dot.classList.toggle('active', index === activeIndex);
+          });
+
+          // Atualiza visibilidade das setas
+          leftArrow.classList.toggle('hidden', scrollLeft === 0);
+          rightArrow.classList.toggle('hidden', scrollLeft >= maxScroll - 10); // 10px de tolerância
+      }
+      
+      dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+              const scrollTo = index * cardsContainer.clientWidth;
+              cardsContainer.scrollTo({
+                  left: scrollTo,
+                  behavior: 'smooth'
+              });
+          });
+      });
+      
+      leftArrow.addEventListener('click', () => {
+          cardsContainer.scrollBy({ 
+              left: -cardsContainer.clientWidth, 
+              behavior: 'smooth' 
+          });
+      });
+      
+      rightArrow.addEventListener('click', () => {
+          cardsContainer.scrollBy({ 
+              left: cardsContainer.clientWidth, 
+              behavior: 'smooth' 
+          });
+      });
+      
+      cardsContainer.addEventListener('scroll', checkScroll);
+      
+      // Inicializa
+      checkScroll();
+      
+      // Redimensionamento da janela
+      const resizeObserver = new ResizeObserver(() => {
+          checkScroll();
+      });
+      
+      resizeObserver.observe(cardsContainer);
+  });
+});
+
+// controle de busca
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('searchForm');
+  const searchInput = document.getElementById('searchInput');
+  const searchResult = document.getElementById('searchResult');
+
+  searchForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Isso evita que o formulário suba
+      
+      const searchTerm = searchInput.value.trim();
+      
+      if (searchTerm) {
+          searchResult.textContent = `Você buscou por: '${searchTerm}'`;
+          searchResult.style.display = 'block';
+          
+          // Opcional: esconder o resultado após alguns segundos
+          setTimeout(() => {
+              searchResult.style.display = 'none';
+          }, 3000);
+      } else {
+          searchResult.style.display = 'none';
+      }
+  });
+
+  document.addEventListener('click', function(event) {
+      if (!searchForm.contains(event.target)) {
+          searchResult.style.display = 'none';
+      }
+  });
+});
+
+// footer controle de seções
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionHeaders = document.querySelectorAll('.footer-section h4');
+  
+  sectionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+          this.classList.toggle('active');
+          const sectionContent = this.parentNode.querySelectorAll('h5');
+          sectionContent.forEach(content => {
+              content.classList.toggle('show');
+          });
+      });
+  });
 });

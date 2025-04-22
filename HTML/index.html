@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avanti</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../mediaquery/mediaquery.css">
 </head>
 
 <body>
@@ -14,21 +15,54 @@
             <p>Ganhe <span class="sublinhado">R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <span
                     class="italico">DESCONTO10</span></p>
         </div>
-        <div class="header-bottom display-flex align-items-c justify-content-bt">
-
-            <div class="logo-busca display-flex align-items-c">
-                <div id="logo-img">
-                    <img src="../assets/logo.png" alt="logo-avanti-pic">
-                </div>
-                <form action="/pesquisar" method="get">
+        <div class="header-bottom-mobile">
+         
+            <div class="hamburguer-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div id="logo-img">
+                <img src="../assets/logo.png" alt="logo-avanti-pic">
+            </div>
+            
+            <div id="carrinho">
+                <img src="../assets/carrinho.png" alt="Carrinho de compras">
+            </div>
+            
+        
+            <div class="search-container">
+                <form action="/pesquisar" method="get" id="searchForm">
                     <div class="pesquisar display-flex align-items-c">
-                        <input type="search" name="q" placeholder="Digite aqui o que você procura"
+                        <input type="search" name="q" id="searchInput" placeholder="Digite aqui o que você procura"
                             aria-label="Barra de pesquisa">
                         <button type="submit">
                             <img src="../assets/lupa.png" alt="lupa icon">
                         </button>
                     </div>
                 </form>
+                <div id="searchResult"></div>
+            </div>
+        </div>
+        <div class="header-bottom display-flex align-items-c justify-content-bt">
+
+            <div class="logo-busca display-flex align-items-c">
+                <div id="logo-img">
+                    <img src="../assets/logo.png" alt="logo-avanti-pic">
+                </div>
+                <div class="search-container">
+                    <form action="/pesquisar" method="get" id="searchForm">
+                        <div class="pesquisar display-flex align-items-c">
+                            <input type="search" name="q" id="searchInput" placeholder="Digite aqui o que você procura"
+                                aria-label="Barra de pesquisa">
+                            <button type="submit">
+                                <img src="../assets/lupa.png" alt="lupa icon">
+                            </button>
+                        </div>
+                    </form>
+                    <div id="searchResult"></div>
+                </div>
             </div>
 
             <div class="cliente display-flex">
@@ -45,7 +79,7 @@
     <nav class="nav-container display-flex">
         <div class="nav-content display-flex align-items-c justify-content-bt">
             <div class="menu-first-item-container display-flex align-items-c">
-              
+
                 <div class="hamburguer-menu display-flex justify-content-bt">
                     <span></span>
                     <span></span>
@@ -79,7 +113,7 @@
                         </ul>
                         <div class="subcategories-column display-flex justify-content-l">
                             <div class="subcategories-content display-flex justify-content-l align-items-c">
-                                
+
                             </div>
                         </div>
                         <div class="img-mega-menu">
@@ -98,10 +132,10 @@
                     <div class="nav-mega-menu mega-menu-base">
                         <div class="mega-menu-content">
                             <div class="department-content">
-                            <h3>Departamento</h3>
-                            <div class="categories-grid display-flex padding-0">
+                                <h3>Departamento</h3>
+                                <div class="categories-grid display-flex padding-0">
+                                </div>
                             </div>
-                        </div>
                             <div class="img-mega-menu">
                                 <div class="overlay-content">
                                     <h3>Confira os Produtos <span class="negrito">Que acabaram de chegar</span></h3>
@@ -127,11 +161,257 @@
     <main>
         <section id="home">
             <article class="home-article display-flex align-items-c justify-content-ar">
-                <img src="../assets/cadeira.png" alt="imagem cadeira">
+                <div class="img-home">
+                    <img src="../assets/cadeira.png" alt="imagem cadeira">
+                </div>
                 <div class="text display-flex align-items-c">
                     <h1><span class="negrito">SUPER</span>SALE</h1>
-                    <h3>ITENS SELECIONADOS COM ATÉ</h3>
+                    <h3 class="desktop-text">ITENS SELECIONADOS COM ATÉ</h3>
+                    <h3 class="mobile-text">Selected items up to</h3>
                     <h3><span class="negrito-menor">50%OFF</span></h3>
+                </div>
+            </article>
+            <article class="rolagem-roupas">
+                <div class="title-rolagem display-flex justify-content-bt align-items-c">
+                    <h2>Lançamentos</h2>
+                    <a href="#">Ver mais</a>
+                </div>
+                <div class="scroll-container" id="destaques">
+                    <button class="scroll-arrow left-arrow" aria-label="Rolar para esquerda">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                        </svg>
+                    </button>
+
+                    <div class="cards-container display-flex">
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="../assets/img-roupa.png" alt="imagem teste de roupa">
+                                <span class="novo-badge">NOVO</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                                <div class="desconto display-flex justify-content-bt align-items-c">
+                                    <div class="price display-flex">
+                                        <span class="old-price">R$100,00</span>
+                                        <span class="new-price">R$79,90</span>
+                                    </div>
+                                    <span class="desconto-badge">10% OFF</span>
+                                </div>
+                                <span class="text-bottom">Ou em até <span class="negrito">10x de R$ 7,90</span></span>
+
+                                <button class="buy-btn">Comprar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="scroll-arrow right-arrow" aria-label="Rolar para direita">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+                    <div class="scroll-indicator">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+        <section id="text-1" class="img-first">
+            <article class="text-article display-flex justify-content-ar">
+                <div class="text-img display-flex justify-content-bt align-items-c">
+                    <div class="content-img display-flex align-items-c justify-content-c">
+                        <img src="../assets/img-caneca.png" alt="imagem teste de caneca">
+                    </div>
+                    <div class="content-text display-flex justify-content-c align-items-c">
+                        <h3>LOREM IPSUM</h3>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet
+                            lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet.
+                            Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor
+                            tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat
+                            interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet
+                            lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet.
+                            Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor
+                            tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat
+                            interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section id="text-2" class="text-first">
+            <article class="text-article display-flex justify-content-ar">
+                <div class="text-img display-flex justify-content-bt align-items-c">
+                    <div class="content-text display-flex justify-content-c align-items-c">
+                        <h3>LOREM IPSUM</h3>
+                        <div class="icon-text-content display-flex align-items-c">
+                            <div class="icon">
+                                <img src="../assets/map-pin.png" alt="icon pin mapa">
+                                <img src="../assets/blue-circle.png" alt="circulo azul icon">
+                            </div>
+                            <p>Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                        </div>
+                        <div class="icon-text-content display-flex align-items-c">
+                            <div class="icon">
+                                <img src="../assets/map-pin.png" alt="icon pin mapa">
+                                <img src="../assets/blue-circle.png" alt="circulo azul icon">
+                            </div>
+                            <p>Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                        </div>
+                        <div class="icon-text-content display-flex align-items-c">
+                            <div class="icon">
+                                <img src="../assets/map-pin.png" alt="icon pin mapa">
+                                <img src="../assets/blue-circle.png" alt="circulo azul icon">
+                            </div>
+                            <p>Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                        </div>
+                    </div>
+                    <div class="img-content">
+                        <img src="../assets/img-caneca-fundo.png" alt="imagem caneca teste com fundo">
+                    </div>
+
+
+                </div>
+            </article>
+        </section>
+        <section id="text-1-copy">
+            <article class="text-article display-flex justify-content-ar">
+                <div class="text-img display-flex justify-content-bt align-items-c">
+                    <div class="content-img display-flex align-items-c justify-content-c">
+                        <img src="../assets/img-caneca.png" alt="imagem teste de caneca">
+                    </div>
+                    <div class="content-text display-flex justify-content-c align-items-c">
+                        <h3>LOREM IPSUM</h3>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet
+                            lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet.
+                            Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor
+                            tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat
+                            interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet
+                            lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet.
+                            Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor
+                            tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat
+                            interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+                    </div>
                 </div>
             </article>
             <article class="rolagem-roupas">
@@ -293,24 +573,116 @@
                         <span class="dot"></span>
                     </div>
                 </div>
-           
+
             </article>
         </section>
-        <section id="text-1">
-            <article class="text-article display-flex justify-content-ar">
-                <div class="text-img display-flex justify-content-bt align-items-c">
-                    <div class="content-img display-flex align-items-c justify-content-c">
-                         <img src="../assets/img-caneca.png" alt="imagem teste de caneca">
-                    </div>
-                    <div class="content-text display-flex justify-content-c align-items-c">
-                        <h3>LOREM IPSUM</h3>
-                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
-                        <p>Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.</p>
+        <section id="contato">
+            <article class="contato-article display-flex align-items-c justify-content-c">
+                <div class="faixa display-flex">
+                    <h3>Entre em contato conosco e verifique a disponibilidade para sua região!</h3>
+                </div>
+            </article>
+            <article>
+                <div class="newsletter display-flex align-items-c justify-content-c">
+                    <h4>Cadastre-se na nossa <span class="color-2-txt">newsletter</span></h4>
+                    <div class="form-newsletter display-flex align-items-c justify-content-c">
+                        <form action="/processa-newsletter" method="POST">
+                            <!-- campo Nome -->
+                            <div class="form-group">
+                                <label for="nome" class="sr-only">Nome</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                            </div>
+
+                            <!-- campo Email -->
+                            <div class="form-group">
+                                <label for="email" class="sr-only">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                            </div>
+
+                            <!-- checkbox -->
+                            <div class="form-group checkbox-group display-flex align-items-c">
+                                <input type="checkbox" id="privacidade" name="privacidade" required>
+                                <label for="privacidade">
+                                    Estou de acordo com a <a href="/politica-privacidade" class="underline"> Política de
+                                        Privacidade</a>
+                                </label>
+                            </div>
+
+                            <!-- botão -->
+                            <button type="submit" class="cadastrar-btn">Cadastrar</button>
+                        </form>
                     </div>
                 </div>
             </article>
         </section>
     </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="logos-footer display-flex">
+                <img src="../assets/logo.png" alt="avanti logo">
+                <div class="separador display-flex justify-content-bt"><img src="../assets/instagram.png"
+                        alt="instagram logo">
+                    <img src="../assets/facebook.png" alt="facebook logo">
+                    <img src="../assets/youtube.png" alt="youtube logo">
+                    <img src="../assets/tiktok.png" alt="tiktok logo">
+                </div>
+
+            </div>
+            <div class="footer-section">
+                <h4>Institucional</h4>
+                <h5>Sobre Nós</h5>
+                <h5>Nossas Lojas</h5>
+                <h5>Privacidade e Segurança</h5>
+                <h5>Termos e Condições</h5>
+            </div>
+
+            <div class="footer-section">
+                <h4>Central de ajuda</h4>
+                <h5>Fale Conosco</h5>
+                <h5>Frete e Entrega</h5>
+                <h5>Trocas e Devoluções</h5>
+                <h5>Formas de Pagamento</h5>
+                <h5>FAQ</h5>
+            </div>
+
+            <div class="footer-section">
+                <h4>Atendimento</h4>
+                <h5><span class="negrito">Telefone:</span> (00) 1234-5678</h5>
+                <h5><span class="negrito">E-mail:</span> exemplo@exemplo.com.br</h5>
+                <h5><span class="negrito">Horário de atendimento:</span><br>
+                    Segunda a Sábado: 07h00 às 23h00
+                    <br>
+                    Domingo e Feriados: 07h00 às 21h00
+                </h5>
+            </div>
+        </div>
+        <div class="formas-pagamento display-flex align-items-c justify-content-c ">
+            <img src="../assets/amex.png" alt="amex logo">
+            <img src="../assets/mastercard.png" alt="mastercard logo">
+            <img src="../assets/visa.png" alt="visa logo">
+            <img src="../assets/hipercard.png" alt="hiper card logo">
+            <img src="../assets/elo.png" alt="elo logo">
+            <img src="b.png" alt="b logo">
+            <img src="../assets/paypal.png" alt="paypal logo">
+            <img src="../assets/pix.png" alt="pix logo">
+            <img src="../assets/boleto.png" alt="boleto logo">
+
+        </div>
+        <div class="footer-bottom display-flex align-items-c ju">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                dolore te feugait nulla facilisi.</p>
+            <div class="colaboradores-logos display-flex align-items-c justify-content-c">
+                <img src="../assets/lets.png" alt="let's encrypt logo">
+                <img src="../assets/vtex.png" alt="vtex logo">
+                <img src="../assets/logo.png" alt="avanti logo">
+                <img src="../assets/vtex-2.png" alt="vtex logo 2">
+            </div>
+        </div>
+    </footer>
 
 
     <script src="../JS/script.js"></script>
