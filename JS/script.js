@@ -175,13 +175,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchResult = document.getElementById('searchResult');
 
   searchForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Isso evita que o formulário suba
+      event.preventDefault();
       
       const searchTerm = searchInput.value.trim();
       
       if (searchTerm) {
           searchResult.textContent = `Você buscou por: '${searchTerm}'`;
           searchResult.style.display = 'block';
+          
       
           setTimeout(() => {
               searchResult.style.display = 'none';
@@ -206,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
       header.addEventListener('click', function() {
           this.classList.toggle('active');
           const sectionContent = this.parentNode.querySelectorAll('h5');
+        
           sectionContent.forEach(content => {
               content.classList.toggle('show');
           });
