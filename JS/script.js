@@ -174,22 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
   const searchResult = document.getElementById('searchResult');
 
+  // Impede o envio do formulário e mostra o resultado
   searchForm.addEventListener('submit', function(event) {
-      event.preventDefault(); 
+      event.preventDefault(); // Isso impede o recarregamento da página
       
-      const searchTerm = searchInput.value.trim();
+      const termo = searchInput.value.trim();
       
-      if (searchTerm) {
-          searchResult.textContent = `Você buscou por: '${searchTerm}'`;
+      if (termo) {
+          searchResult.textContent = `Você pesquisou por: ${termo}`;
           searchResult.style.display = 'block';
-          setTimeout(() => {
-              searchResult.style.display = 'none';
-          }, 3000);
       } else {
           searchResult.style.display = 'none';
       }
   });
 
+  // Opcional: Esconder o resultado quando clicar fora
   document.addEventListener('click', function(event) {
       if (!searchForm.contains(event.target)) {
           searchResult.style.display = 'none';
