@@ -175,15 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchResult = document.getElementById('searchResult');
 
   searchForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Isso evita que o formulário suba
+      event.preventDefault(); 
       
       const searchTerm = searchInput.value.trim();
       
       if (searchTerm) {
           searchResult.textContent = `Você buscou por: '${searchTerm}'`;
           searchResult.style.display = 'block';
-          
-          // Opcional: esconder o resultado após alguns segundos
           setTimeout(() => {
               searchResult.style.display = 'none';
           }, 3000);
