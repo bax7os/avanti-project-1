@@ -180,13 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const searchTerm = searchInput.value.trim();
       
       if (searchTerm) {
+        console.log(searchTerm);
           searchResult.innerHTML = `Você buscou por: <strong>${searchTerm}</strong>`; // Use innerHTML para estilizar
           searchResult.style.display = 'block';
-          
-          // Esconde após 3 segundos
-          setTimeout(() => {
-              searchResult.style.display = 'none';
-          }, 3000);
+  
       } else {
           searchResult.style.display = 'none';
       }
