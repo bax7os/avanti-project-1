@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 
     body,
     html {
@@ -89,11 +89,9 @@
     }
     /* seção home */
     .home-article {
-        align-items: center;
         min-height: 300px;
-
         padding: 20% 0 0 0;
-
+        gap: 1rem;
     }
 
     .img-home {
@@ -106,7 +104,7 @@
     }
 
     .img-home img {
-        height: 70%;
+        min-height: 70%;
         object-fit: cover;
         object-position: top right;
         width: auto;
@@ -115,7 +113,10 @@
     .text {
         margin-left: 0;
         padding-top: 60px;
+        margin-right: 0;
         text-align: center;
+        
+
     }
 
     .desktop-text {
@@ -130,13 +131,17 @@
         display: flex;
         flex-direction: column;
         line-height: 40px;
+        margin: 0;
         font-size: 40px;
     }
 
     .text h3 {
         white-space: nowrap;
         letter-spacing: 1px;
+        align-items: center;
         font-size: 12px;
+        margin: 0;
+
 
     }
 

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Dados compartilhados
   const subcategoriesData = {
     departamento1: [
       {
@@ -92,11 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // rolagem de roupas
 document.addEventListener('DOMContentLoaded', function() {
-  // Seleciona todos os containers de rolagem
+
   const scrollContainers = document.querySelectorAll('.scroll-container');
   
   scrollContainers.forEach((container, containerIndex) => {
-      // Cria um ID único se não existir
+   
       if (!container.id) {
           container.id = `scroll-container-${containerIndex}`;
       }
@@ -105,8 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const leftArrow = container.querySelector('.left-arrow');
       const rightArrow = container.querySelector('.right-arrow');
       const dots = container.querySelectorAll('.dot');
-      
-      // Configuração específica para este carrossel
+     
       const card = container.querySelector('.card');
       const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card).marginRight);
       const visibleCards = Math.floor(cardsContainer.clientWidth / cardWidth);
@@ -156,10 +154,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       cardsContainer.addEventListener('scroll', checkScroll);
       
-      // Inicializa
+ 
       checkScroll();
-      
-      // Redimensionamento da janela
+
       const resizeObserver = new ResizeObserver(() => {
           checkScroll();
       });
@@ -168,35 +165,41 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// controle de busca
 document.addEventListener('DOMContentLoaded', function() {
-  const searchForm = document.getElementById('searchForm');
-  const searchInput = document.getElementById('searchInput');
-  const searchResult = document.getElementById('searchResult');
-  console.log('Dentro da função');
-
-  searchForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Isso evita que o formulário suba
-
-      const searchTerm = searchInput.value.trim();
-      console.log('Termo de busca:', searchTerm);
-      if (searchTerm) {
-          searchResult.textContent = `Você buscou por: '${searchTerm}'`;
-          searchResult.style.display = 'block';
+  const searchForms = document.querySelectorAll('.searchForm');
+  
+  searchForms.forEach(function(searchForm) {
+      const searchInput = searchForm.querySelector('.searchInput');
+      const searchResult = searchForm.closest('.search-container').querySelector('.searchResult');
+      
+      searchForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const searchTerm = searchInput.value.trim();
           
-          // Opcional: esconder o resultado após alguns segundos
-          setTimeout(() => {
+          if (searchTerm) {
+              searchResult.textContent = `Você buscou por: '${searchTerm}'`;
+              searchResult.style.display = 'block';
+              
+              setTimeout(() => {
+                  searchResult.style.display = 'none';
+              }, 3000);
+          } else {
               searchResult.style.display = 'none';
-          }, 3000);
-      } else {
-        console.log('Nenhum termo de busca fornecido');
-          searchResult.style.display = 'none';
-      }
+          }
+      });
   });
 
+
   document.addEventListener('click', function(event) {
-      if (!searchForm.contains(event.target)) {
-          searchResult.style.display = 'none';
+      const allSearchResults = document.querySelectorAll('.searchResult');
+      const clickedInsideForm = Array.from(document.querySelectorAll('.searchForm')).some(
+          form => form.contains(event.target)
+      );
+      
+      if (!clickedInsideForm) {
+          allSearchResults.forEach(result => {
+              result.style.display = 'none';
+          });
       }
   });
 });
