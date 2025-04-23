@@ -410,7 +410,7 @@
 
     /* Seções do footer */
     .site-footer {
-        padding: 20px 0;
+        padding: 20px 0px 0px 0px;
     }
     .footer-container {
         flex-direction: column;
@@ -480,11 +480,9 @@
         max-height: 20px;
         width: auto;
     }
+    
     .footer-bottom {
-        padding: 20px 0px;
-        height: auto;
-        margin-top: 0;
-        margin-bottom: 0;
+       padding-bottom: 15px;
     }
     
     .footer-bottom p {
