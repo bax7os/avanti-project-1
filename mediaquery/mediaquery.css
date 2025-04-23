@@ -380,7 +380,7 @@
     .checkbox-group label {
         display: flex;
         align-items: center;
-     
+        white-space: nowrap;
         margin: 0;
     }
     .checkbox-group input{
@@ -481,9 +481,10 @@
         width: auto;
     }
     .footer-bottom {
-        padding: 20px 15px;
+        padding: 20px 0px;
         height: auto;
         margin-top: 0;
+        margin-bottom: 0;
     }
     
     .footer-bottom p {
