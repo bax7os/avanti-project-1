@@ -174,31 +174,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
   const searchResult = document.getElementById('searchResult');
 
-  console.log("Script carregado!"); // Verifica se o JS está carregando
-
   searchForm.addEventListener('submit', function(event) {
-      console.log("Formulário enviado!"); // Verifica se o evento está sendo capturado
-      event.preventDefault();
+      event.preventDefault(); // Isso evita que o formulário suba
       
       const searchTerm = searchInput.value.trim();
-      console.log("Termo pesquisado:", searchTerm); // Verifica o valor
       
       if (searchTerm) {
-          searchResult.innerHTML = `Você buscou por: <strong>${searchTerm}</strong>`;
+          searchResult.textContent = `Você buscou por: '${searchTerm}'`;
           searchResult.style.display = 'block';
+          
+          // Opcional: esconder o resultado após alguns segundos
+          setTimeout(() => {
+              searchResult.style.display = 'none';
+          }, 3000);
       } else {
           searchResult.style.display = 'none';
       }
   });
 
-  // Esconde quando clicar fora
   document.addEventListener('click', function(event) {
       if (!searchForm.contains(event.target)) {
           searchResult.style.display = 'none';
       }
   });
 });
-
 // footer controle de seções
 document.addEventListener('DOMContentLoaded', function() {
   const sectionHeaders = document.querySelectorAll('.footer-section h4');
