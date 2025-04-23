@@ -435,6 +435,7 @@
         margin: 0;
         padding: 15px 0;
         border-bottom: 1px solid #ddd;
+        outline: none;
     }
     
     .footer-section h4 {
