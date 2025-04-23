@@ -173,12 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchForm = document.getElementById('searchForm');
   const searchInput = document.getElementById('searchInput');
   const searchResult = document.getElementById('searchResult');
+  console.log('Dentro da função');
 
   searchForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Isso evita que o formulário suba
-      
+
       const searchTerm = searchInput.value.trim();
-      
+      console.log('Termo de busca:', searchTerm);
       if (searchTerm) {
           searchResult.textContent = `Você buscou por: '${searchTerm}'`;
           searchResult.style.display = 'block';
@@ -188,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
               searchResult.style.display = 'none';
           }, 3000);
       } else {
+        console.log('Nenhum termo de busca fornecido');
           searchResult.style.display = 'none';
       }
   });
